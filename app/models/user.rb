@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  paginates_per 5
   rolify
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable

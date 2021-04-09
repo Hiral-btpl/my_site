@@ -7,40 +7,41 @@
     <%= link_to('Login', new_user_session_path) %>  
   </li>
 <% end %>
+
 <% if current_user.admin? %>
-<h1>Users</h1>
+  <h1>Users</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Email</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @users.each do |user| %>
+  <table>
+    <thead>
       <tr>
-        <td><%= user.email %></td>
-        <td><%= link_to "show your articles", user_articles_path(user.id) %></td>
+        <th>Email</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+
+    <tbody>
+      <% @users.each do |user| %>
+        <tr>
+          <td><%= user.email %></td>
+          <td><%= link_to "show your articles", user_articles_path(user.id) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 <% else %>
-<h1>Your Profile</h1>
+  <h1>Your Profile</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Email</th>
-    </tr>
-  </thead>
+  <table>
+    <thead>
+      <tr>
+        <th>Email</th>
+      </tr>
+    </thead>
 
-  <tbody>
-    <tr>
-      <td><%= @user.email %></td>
-      <td><%= link_to "show your articles", user_articles_path(@user.id) %></td>
-    </tr>
-  </tbody>
-</table>
+    <tbody>
+      <tr>
+        <td><%= @user.email %></td>
+        <td><%= link_to "show your articles", user_articles_path(@user.id) %></td>
+      </tr>
+    </tbody>
+  </table>
 <% end %>

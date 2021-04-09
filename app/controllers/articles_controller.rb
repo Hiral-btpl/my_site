@@ -2,12 +2,28 @@ class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy]
   before_action :set_user, only: [:show, :index]
   before_action :authenticate_user!
- 
+  before_action :search_params
+
+  def search_params
+    @q = Article.ransack(params[:q])
+    @title = @q.result
+  end
   # GET /articles
   # GET /articles.json
   def index
     @articles = @user.articles.all
+
+    @qrcode = RQRCode::QRCode.new("http://github.com/")
+
+    @svg = @qrcode.as_svg(
+      offset: 0,
+      color: '000',
+      shape_rendering: 'crispEdges',
+      module_size: 6  
+    )
+
     authorize @articles
+    
   end
  
   # GET /articles/1
@@ -18,7 +34,7 @@ class ArticlesController < ApplicationController
   # GET /articles/new
   def new
     @article = Article.new
-    # raise params.inspect
+    # raise params.inspectarticlesarticles
     # @user = User.find(params[:id])
     authorize @article
   end
