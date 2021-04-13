@@ -1,9 +1,8 @@
 class User < ApplicationRecord
-  paginates_per 5
   rolify
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable 
+  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable, :confirmable 
   devise :omniauthable, omniauth_providers: %i[facebook google_oauth2 github]
   has_many :articles
 
