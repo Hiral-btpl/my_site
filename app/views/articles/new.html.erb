@@ -1,0 +1,5 @@
+<h1>New Article</h1>
+
+<%= render 'form', url: user_articles_path(params[:user_id]), method: :post %>
+
+<%= link_to 'Back', user_articles_path(params[:user_id]) %>

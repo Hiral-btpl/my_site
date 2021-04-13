@@ -1,0 +1,24 @@
+<% if user_signed_in? %>
+  <li>
+    <%= link_to('Logout', destroy_user_session_path, method: :delete) %>        
+  </li>
+<% else %>
+  <li>
+    <%= link_to('Login', new_user_session_path) %>  
+  </li>
+<% end %>
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @article.title %>
+</p>
+
+<p>
+  <strong>Body:</strong>
+  <%= @article.body %>
+</p>
+
+<%# link_to 'Edit', edit_article_path(@article) %> 
+<%= link_to 'Back', user_articles_path(params[:user_id]) %>
