@@ -27,6 +27,9 @@ gem 'omniauth-github'
 gem "rolify"
 gem 'ransack'
 gem 'rqrcode'
+gem 'active_link_to' 
+gem 'city-state'
+gem 'devise_invitable'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
  
