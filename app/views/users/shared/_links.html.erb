@@ -21,8 +21,9 @@
 <%- if devise_mapping.omniauthable? %>
   <%- resource_class.omniauth_providers.each do |provider| %>
     <%= link_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", user_facebook_omniauth_authorize_path(resource_name, provider) %><br />
+    <%# link_to "Sign in with Google", user_google_oauth2_omniauth_callback_path(:google_oauth2) %>
+    <%# link_to "Sign in with Github", user_github_omniauth_authorize_path(:github) %>
   <% end %>
-  <%= link_to "Sign in with Google", user_omniauth_authorize_path(:google_oauth2) %>
-  <%= link_to "Sign in with Github", user_github_omniauth_authorize_path(:github) %>
-  <%= link_to "Back", homes_index_path %>
 <% end %>
+
+<%= link_to "Back", homes_index_path %>
