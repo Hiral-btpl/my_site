@@ -21,8 +21,6 @@ class ArticlesController < ApplicationController
       shape_rendering: 'crispEdges',
       module_size: 6  
     )
-
-    authorize @articles
     
   end
  
@@ -36,7 +34,6 @@ class ArticlesController < ApplicationController
     @article = Article.new
     # raise params.inspectarticlesarticles
     # @user = User.find(params[:id])
-    authorize @article
   end
  
   # GET /articles/1/edit
@@ -51,7 +48,6 @@ class ArticlesController < ApplicationController
     @article.body = params[:body]
     @article.user_id = params[:user_id]
     # @article.user = current_user
-    authorize @article
  
     respond_to do |format|
       if @article.save
@@ -93,7 +89,6 @@ class ArticlesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_article
       @article = Article.find(params[:id])
-      authorize @article
     end
 
     def set_user

@@ -30,6 +30,7 @@ gem 'rqrcode'
 gem 'active_link_to' 
 gem 'city-state'
 gem 'devise_invitable'
+gem 'cancancan'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
  

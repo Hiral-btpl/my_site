@@ -22,7 +22,9 @@
       <% @users.each do |user| %>
         <tr>
           <td><%= user.email %></td>
-          <td><%= link_to "show your articles", user_articles_path(user.id) %></td>
+          <% if can? :read, Article %>
+            <td><%= link_to "show your articles", user_articles_path(user.id) %></td>
+          <% end %>
         </tr>
       <% end %>
     </tbody>
@@ -40,7 +42,9 @@
     <tbody>
       <tr>
         <td><%= @user.email %></td>
-        <td><%= link_to "show your articles", user_articles_path(@user.id),  class_active: 'enabled' %></td>
+        <% if can? :read, Article %>
+          <td><%= link_to "show your articles", user_articles_path(@user.id) %></td>
+        <% end %>
       </tr>
     </tbody>
   </table>
